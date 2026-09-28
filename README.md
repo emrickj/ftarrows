@@ -1,4 +1,4 @@
-# ftarrows
+# Follow the Arrows
 Follow the Arrows is a game written in BASIC for the C64.
 
 This is a small puzzle game where the objective is to get
