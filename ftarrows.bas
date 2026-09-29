@@ -1,36 +1,32 @@
-   10 rem follow the arrows v1
+   10 rem follow the arrows v1.1
    15 rem by john emrick
-   25 for a = 0 to 47
-   30 read b: poke 4096+a,b
+   25 fora=0to47
+   30 readb:poke4096+a,b
    40 next
-   45 sys 4096
-   46 for a=0to31:readb:poke12768+a,b:next
+   45 sys4096
+   46 fora=0to31:readb:poke12768+a,b:next
    50 poke53272,29
    60 poke53265,peek(53265)or64
    70 poke53280,2:poke53281,0:poke53282,1:poke53283,6:poke53284,3
    80 print"{clr}{down}{down}{down}{down}{down}{down}{down}{rvon}";
-   90 for i=1to400
+   90 fori=1to400
   100 x=int(rnd(1)*4)
-  110 if x=0 then print"<";
-  120 if x=1 then print"=";
-  130 if x=2 then print">";
-  140 if x=3 then print"?";
+  110 printchr$(60+x);
   150 next
-  160 cl=1124
-  170 ul=cl-40:dl=cl+40:ll=cl-1:rl=cl+1:fl=0
-  180 poke cl,peek(cl)or64
+  160 cl=1123
+  180 fl=0:pokecl,peek(cl)or64
   190 geta$:ifa$=""thengoto190
-  200 poke cl,peek(cl)and191
-  202 ifa$="{up}"thenif(peek(cl)and129)=129or(peek(ul)and131)=130thenfl=1
-  204 ifa$="{rght}"thenif(peek(cl)and129)=128or(peek(rl)and131)=131thenfl=1
-  206 ifa$="{down}"thenif(peek(cl)and129)=129or(peek(dl)and131)=128thenfl=1
-  208 ifa$="{left}"thenif(peek(cl)and129)=128or(peek(ll)and131)=129thenfl=1
+  200 pokecl,peek(cl)and191
+  202 ifa$="{up}"thenif(peek(cl)and129)=129or(peek(cl-40)and131)=130thenfl=1
+  204 ifa$="{rght}"thenif(peek(cl)and129)=128or(peek(cl+1)and131)=131thenfl=1
+  206 ifa$="{down}"thenif(peek(cl)and129)=129or(peek(cl+40)and131)=128thenfl=1
+  208 ifa$="{left}"thenif(peek(cl)and129)=128or(peek(cl-1)and131)=129thenfl=1
   210 ifa$="{up}"andfl=0and(cl-40)>=1024thencl=cl-40
   220 ifa$="{rght}"andfl=0and(cl+1)<=2023thencl=cl+1
   230 ifa$="{down}"andfl=0and(cl+40)<=2023thencl=cl+40
   240 ifa$="{left}"andfl=0and(cl-1)>=1024thencl=cl-1
-  245 ifa$="{f1}"then goto80
-  250 goto 170
+  245 ifa$="{f1}"thengoto80
+  250 goto180
 22560 data 120,165,1,72,169,49,133,1
 22570 data 169,0,133,2,169,208,133,3
 22580 data 169,0,133,4,169,48,133,5
